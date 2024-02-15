@@ -27,18 +27,19 @@
 
     const engine = ThreeEngine.new_default_3d();
 
+    engine.spawn_sphere_default();
     // The returned engine object should now be configured for a default 3D scene
     // You can now use this engine object to add objects, lights, etc., to your scene
     // For example, adding a mesh to the scene
-    const geometry = new THREE.SphereGeometry(5, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const sphere = new THREE.Mesh(geometry, material);
+    // const geometry = new THREE.SphereGeometry(5, 32, 32);
+    // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    // const sphere = new THREE.Mesh(geometry, material);
 
-    // Assuming the engine has a scene property
-    engine.scene.add(sphere);
+    // // Assuming the engine has a scene property
+    // engine.scene.add(sphere);
 
-    // And if there's a method to start the rendering loop, you might call it like this
-    engine.startRendering();
+    // // And if there's a method to start the rendering loop, you might call it like this
+    // engine.startRendering();
 
 </script>
 </body>
