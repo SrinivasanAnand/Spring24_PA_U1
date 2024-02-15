@@ -27,7 +27,19 @@
 
     const engine = ThreeEngine.new_default_3d();
 
-    ThreeEngine.spawn_sphere_default();
+    const material = new ThreeEngine.LineBasicMaterial( { color: 0x0000ff } );
+
+    const points = [];
+    points.push( new THREE.Vector3( - 10, 0, 0 ) );
+    points.push( new THREE.Vector3( 0, 10, 0 ) );
+    points.push( new THREE.Vector3( 10, 0, 0 ) );
+
+    const geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+    const line = new THREE.Line( geometry, material );
+
+    engine.scene.add( line );
+    engine.renderer.render( scene, camera );
     // The returned engine object should now be configured for a default 3D scene
     // You can now use this engine object to add objects, lights, etc., to your scene
     // For example, adding a mesh to the scene
