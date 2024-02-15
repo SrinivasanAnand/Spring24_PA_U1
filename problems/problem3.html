@@ -42,6 +42,19 @@
 
     camera.position.z = 15;
 
+    // 4. Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // You can add some rotation to the sphere
+        sphere.rotation.x += 0.01;
+        sphere.rotation.y += 0.01;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
 </script>
 </body>
 </html>
