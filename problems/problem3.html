@@ -26,25 +26,11 @@
 
     // todo: draw a sphere in a 3D ThreeEngine scene at the point [1,1,1] with radius 0.1, color 0x00eeff, and opacity 0.7
 
-    const scene = new ThreeEngine.Scene();
-    const camera = new ThreeEngine.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    let engine = ThreeEngine.new_default_3d(); // suppose this is some initialized ThreeEngine
 
-    const renderer = new ThreeEngine.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    document.body.appendChild( renderer.domElement );
-
-    const geometry = new ThreeEngine.BoxGeometry( 1, 1, 1 );
-    const material = new ThreeEngine.MeshBasicMaterial( { color: 0x00ff00 } );
-    const cube = new ThreeEngine.Mesh( geometry, material );
-    scene.add( cube );
-
-    camera.position.z = 5;
-
-    function animate() {
-        requestAnimationFrame( animate );
-        renderer.render( scene, camera );
-    }
-    animate();
+    engine.animation_loop(() => {
+        engine.draw_debug_sphere([1.,2.,3.], 0.03, 0x00ff00, 0.6);
+    }); 
     // The returned engine object should now be configured for a default 3D scene
     // You can now use this engine object to add objects, lights, etc., to your scene
     // For example, adding a mesh to the scene
